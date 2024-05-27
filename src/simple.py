@@ -1,8 +1,5 @@
 import os
 
-
-
-
 import requests
 
 def fetch_data(api_url):
@@ -30,3 +27,5 @@ if __name__ == "__main__":
     print(dev_token)
     print(username)
     print(password)
+    parameter = sys.argv[1]  # Access the passed parameter
+    print(f"Received parameter: {parameter}")
