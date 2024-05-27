@@ -1,5 +1,5 @@
 import os
-
+import sys
 import requests
 
 def fetch_data(api_url):
