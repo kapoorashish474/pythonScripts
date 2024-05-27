@@ -22,10 +22,8 @@ def get_data(api_url):
 
 if __name__ == "__main__":
     # Get the API URL from an environment variable or pass it directly
-    custom_api_url = os.getenv("PublisherId")
     custom_api = os.getenv("PUBLISHER_ID")
-    custom = os.getenv("API_URL")
-    print(custom_api_url, custom_api, custom)  # Replace with the actual environment variable name
+    print(custom_api)  # Replace with the actual environment variable name
     if not custom_api_url:
         custom_api_url = "https://jsonplaceholder.typicode.com/todos/2"  # Default URL
 

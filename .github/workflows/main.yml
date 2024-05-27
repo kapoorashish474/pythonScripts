@@ -16,10 +16,5 @@ jobs:
         run: echo "PublisherId=${{ github.event.inputs.PublisherId }}"
         env:
           PUBLISHER_ID: ${{ github.event.inputs.PublisherId }}
-      - name: Set environment variable
-        env:
-          API_URL: ${{ secrets.PublisherId }}
-        run: |
-          echo "API_URL=$API_URL" >> $GITHUB_ENV
       - name: Run Python Script
         run: python src/simple.py
