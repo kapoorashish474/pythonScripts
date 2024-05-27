@@ -27,3 +27,13 @@ jobs:
           PUBLISHER_ID: ${{ github.event.inputs.PublisherId }}
       - name: Run Python Script
         run: python src/simple.py
+      - name: Save Output to File
+        run: |
+          python src/simple.py > output.txt
+        # The above line redirects the script output to a file named "output.txt"
+        # Adjust the filename as needed
+      - name: Upload Output File
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-output-artifact
+          path: output.txt
