@@ -17,4 +17,4 @@ jobs:
         env:
           PUBLISHER_ID: ${{ secrets.PUBLISHER_ID }}
       - name: Run Python Script
-        run: python simple.py
+        run: python src/simple.py
