@@ -15,7 +15,7 @@ jobs:
       - name: Input provided
         run: echo "PublisherId=${{ github.event.inputs.PublisherId }}"
         env:
-          PUBLISHER_ID: ${{ secrets.PublisherId }}
+          PUBLISHER_ID: ${{ github.event.inputs.PublisherId }}
       - name: Set environment variable
         env:
           API_URL: ${{ secrets.PublisherId }}
