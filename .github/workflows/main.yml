@@ -2,8 +2,8 @@ name: Manual Workflow
 on:
   workflow_dispatch: # Triggered manually
     inputs:
-      API_URL:
-        description: "The ID of the API"
+      PublisherId:
+        description: "The ID of the publisher"
         required: true
 
 jobs:
