@@ -5,6 +5,15 @@ on:
       PublisherId:
         description: "The ID of the publisher"
         required: true
+      DevToken:
+        description: "Your DevToken"
+        required: true
+      Username: # Add this input
+        description: "Your username"
+        required: true
+      Password: # Add this input
+        description: "Your password"
+        required: true
 
 jobs:
   build:
