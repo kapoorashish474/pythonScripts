@@ -1,6 +1,10 @@
 name: Manual Workflow
 on:
   workflow_dispatch: # Triggered manually
+    inputs:
+      PublisherId:
+        description: "The ID of the publisher"
+        required: true
 
 jobs:
   build:
@@ -13,4 +17,4 @@ jobs:
         env:
           PUBLISHER_ID: ${{ secrets.PUBLISHER_ID }}
       - name: Run Python Script
-        run: python playwrightScript.py
+        run: python simple.py
