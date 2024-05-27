@@ -26,7 +26,7 @@ jobs:
         env:
           PUBLISHER_ID: ${{ github.event.inputs.PublisherId }}
       - name: Run Python Script
-        run: python src/simple.py ${{ secrets.PARAMETER_NAME }}
+        run: python src/simple.py ${{ github.event.inputs.PublisherId }}
       - name: Save Output to File
         run: |
           python src/simple.py > output.txt
@@ -37,6 +37,3 @@ jobs:
         with:
           name: my-output-artifact
           path: output.txt
-
-env:
-  PARAMETER_NAME: ${{ secrets.PARAMETER_VALUE }} # Store the parameter securely
