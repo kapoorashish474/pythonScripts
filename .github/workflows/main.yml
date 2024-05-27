@@ -12,11 +12,5 @@ jobs:
         run: echo "Hello, World! PublisherId=${{ github.event.inputs.PublisherId }}"
         env:
           PUBLISHER_ID: ${{ secrets.PUBLISHER_ID }}
-      - name: Save Output as Artifact
-        id: save-output
-        uses: actions/upload-artifact@v2
-        with:
-          name: hello-world-output
-          path: output.txt
-      - name: Display Output
-        run: cat output.txt
+      - name: Run Python Script
+        run: python playwrightScript.py
