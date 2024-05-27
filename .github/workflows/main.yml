@@ -15,6 +15,6 @@ jobs:
       - name: Input provided
         run: echo "PublisherId=${{ github.event.inputs.PublisherId }}"
         env:
-          PUBLISHER_ID: ${{ secrets.PUBLISHER_ID }}
+          PUBLISHER_ID: ${{ secrets.PublisherId }}
       - name: Run Python Script
         run: python src/simple.py
