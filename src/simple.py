@@ -1,15 +1,33 @@
+import os
 import requests
 
-# Specify the URL of the API endpoint you want to access
-api_url = "https://jsonplaceholder.typicode.com/todos/1"
+def get_data(api_url):
+    """
+    Fetches data from the specified API endpoint.
 
-# Send a GET request
-response = requests.get(api_url)
+    Args:
+        api_url (str): The URL of the API endpoint.
 
-# Check if the response status code is 200 (OK)
-if response.status_code == 200:
-    # Parse the JSON data from the response
-    data = response.json()
-    print(data)
-else:
-    print("Error:", response.status_code)
+    Returns:
+        dict: Parsed JSON data from the response.
+    """
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()  # Raise an exception if the status code is not 200
+        data = response.json()
+        return data
+    except requests.RequestException as e:
+        print(f"Error fetching data: {e}")
+        return None
+
+if __name__ == "__main__":
+    # Get the API URL from an environment variable or pass it directly
+    custom_api_url = os.getenv("API_URL")  # Replace with the actual environment variable name
+    if not custom_api_url:
+        custom_api_url = "https://jsonplaceholder.typicode.com/todos/2"  # Default URL
+
+    result = get_data(custom_api_url)
+    if result:
+        print(result)
+    else:
+        print("Error fetching data.")

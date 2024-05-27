@@ -2,8 +2,8 @@ name: Manual Workflow
 on:
   workflow_dispatch: # Triggered manually
     inputs:
-      PublisherId:
-        description: "The ID of the publisher"
+      API_URL:
+        description: "The ID of the API"
         required: true
 
 jobs:
@@ -12,8 +12,8 @@ jobs:
     steps:
       - name: Get Your Code
         uses: actions/checkout@v2
-      - name: Say Hello to the World
-        run: echo "Hello, World! PublisherId=${{ github.event.inputs.PublisherId }}"
+      - name: Input provided
+        run: echo "PublisherId=${{ github.event.inputs.PublisherId }}"
         env:
           PUBLISHER_ID: ${{ secrets.PUBLISHER_ID }}
       - name: Run Python Script
