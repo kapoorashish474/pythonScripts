@@ -32,10 +32,3 @@ if __name__ == "__main__":
         print(result)
     else:
         print("Error fetching data.")
-
-
-    
-    if custom_api_url:
-        print(f"API URL: {custom_api_url}")
-    else:
-        print("API URL not set.")
