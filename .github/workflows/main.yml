@@ -8,12 +8,15 @@ jobs:
     steps:
       - name: Get Your Code
         uses: actions/checkout@v2
-      - name: Prompt for PublisherId
-        run: |
-          echo "Please enter the PublisherId:"
-          read PublisherId
-          echo "You entered PublisherId=$PublisherId"
       - name: Say Hello to the World
-        run: echo "Hello, World! PublisherId=$PublisherId"
+        run: echo "Hello, World! PublisherId=${{ github.event.inputs.PublisherId }}"
         env:
           PUBLISHER_ID: ${{ secrets.PUBLISHER_ID }}
+      - name: Save Output as Artifact
+        id: save-output
+        uses: actions/upload-artifact@v2
+        with:
+          name: hello-world-output
+          path: output.txt
+      - name: Display Output
+        run: cat output.txt
