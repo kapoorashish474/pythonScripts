@@ -8,7 +8,12 @@ jobs:
     steps:
       - name: Get Your Code
         uses: actions/checkout@v2
+      - name: Prompt for PublisherId
+        run: |
+          echo "Please enter the PublisherId:"
+          read PublisherId
+          echo "You entered PublisherId=$PublisherId"
       - name: Say Hello to the World
         run: echo "Hello, World! PublisherId=$PublisherId"
         env:
-          PublisherId: ${{ secrets.PUBLISHER_ID }}
+          PUBLISHER_ID: ${{ secrets.PUBLISHER_ID }}
